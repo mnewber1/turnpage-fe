@@ -24,17 +24,25 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--cream);
             color: var(--dark);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
+            width: 100%;
         }
 
         /* Header */
@@ -44,7 +52,7 @@
 
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
         }
 
@@ -67,31 +75,25 @@
             color: var(--forest);
         }
 
-        .nav-link {
-            color: var(--forest);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: background-color 0.2s;
+        /* Main content - centered hero */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .nav-link:hover {
-            background-color: rgba(45, 71, 57, 0.08);
-        }
-
-        /* Hero */
         .hero {
-            padding: 80px 0 120px;
             text-align: center;
+            padding: 0 24px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(40px, 8vw, 64px);
+            font-size: clamp(36px, 7vw, 60px);
             font-weight: 700;
             color: var(--forest);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             line-height: 1.1;
         }
 
@@ -100,10 +102,10 @@
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             color: rgba(26, 26, 26, 0.7);
-            max-width: 600px;
-            margin: 0 auto 48px;
+            max-width: 500px;
+            margin: 0 auto 36px;
         }
 
         .app-store-btn {
@@ -130,107 +132,7 @@
             height: 24px;
         }
 
-        /* Features */
-        .features {
-            padding: 80px 0;
-            background-color: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 32px 24px;
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background-color: var(--cream);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .feature-icon svg {
-            width: 32px;
-            height: 32px;
-            color: var(--terracotta);
-        }
-
-        .feature-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            color: var(--forest);
-            margin-bottom: 12px;
-        }
-
-        .feature-card p {
-            color: rgba(26, 26, 26, 0.6);
-            font-size: 16px;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .cta h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            color: var(--forest);
-            margin-bottom: 16px;
-        }
-
-        .cta p {
-            color: rgba(26, 26, 26, 0.6);
-            margin-bottom: 32px;
-            font-size: 18px;
-        }
-
-        /* Footer */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid rgba(45, 71, 57, 0.1);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-text {
-            color: rgba(26, 26, 26, 0.5);
-            font-size: 14px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 24px;
-        }
-
-        .footer-links a {
-            color: rgba(26, 26, 26, 0.5);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--forest);
-        }
-
-        /* Decorative elements */
+        /* Decorative element */
         .hero-decoration {
             position: relative;
         }
@@ -238,36 +140,57 @@
         .hero-decoration::before {
             content: '';
             position: absolute;
-            top: -40px;
+            top: -30px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+            width: 60px;
+            height: 3px;
             background: linear-gradient(90deg, var(--terracotta), var(--ochre));
             border-radius: 2px;
         }
 
+        /* Footer */
+        footer {
+            padding: 20px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content a {
+            color: rgba(26, 26, 26, 0.4);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-content a:hover {
+            color: var(--forest);
+        }
+
+        .footer-content span {
+            color: rgba(26, 26, 26, 0.3);
+            font-size: 13px;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0 80px;
-            }
-
             .hero p {
-                font-size: 18px;
+                font-size: 16px;
             }
 
-            .features {
-                padding: 60px 0;
-            }
-
-            .cta {
-                padding: 60px 0;
+            .app-store-btn {
+                padding: 14px 28px;
+                font-size: 16px;
             }
 
             .footer-content {
-                flex-direction: column;
-                text-align: center;
+                gap: 16px;
             }
         }
     </style>
@@ -284,90 +207,32 @@
                     </svg>
                     <span class="logo-text">Turnpage</span>
                 </a>
-                <a href="#download" class="nav-link">Download</a>
             </div>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="container">
-                <div class="hero-decoration">
-                    <h1>Where Stories Bring<br><span>Strangers Together</span></h1>
-                </div>
-                <p>Connect with readers who share your passion. Join book clubs, discuss your favorite stories, and discover your next great read.</p>
-                <a href="#" class="app-store-btn" id="app-store-link">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                    </svg>
-                    Download on App Store
-                </a>
+            <div class="hero-decoration">
+                <h1>Where Stories Bring<br><span>Strangers Together</span></h1>
             </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <h3>Find Your People</h3>
-                        <p>Connect with readers who love the same books. Join clubs based on what you're currently reading.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Spoiler-Safe Chats</h3>
-                        <p>Discuss freely with built-in spoiler protection. Mark your progress and never worry about ruined endings.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                            </svg>
-                        </div>
-                        <h3>Track Your Journey</h3>
-                        <p>Keep track of what you're reading, update your progress, and build your reading history.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta" id="download">
-            <div class="container">
-                <h2>Start Reading Together</h2>
-                <p>Join thousands of readers finding their community on Turnpage.</p>
-                <a href="#" class="app-store-btn" id="app-store-link-2">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
-                    </svg>
-                    Download on App Store
-                </a>
-            </div>
+            <p>Connect with readers who share your passion. Join book clubs, discuss your favorite stories, and discover your next great read.</p>
+            <a href="#" class="app-store-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                </svg>
+                Download on App Store
+            </a>
         </section>
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p class="footer-text">&copy; 2025 Turnpage. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="mailto:support@turnpage.app">Contact</a>
-                    <a href="/privacy.html">Privacy Policy</a>
-                    <a href="/terms.html">Terms of Service</a>
-                </div>
+                <a href="mailto:support@turnpage.app">Contact</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <span>&copy; 2025 Turnpage</span>
             </div>
         </div>
     </footer>
