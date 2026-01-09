@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Club - Turnpage</title>
+    <meta name="description" content="Join this book club on Turnpage">
+
+    <!-- Smart App Banner for iOS -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FDF8F3;
+            --forest: #2D4739;
+            --terracotta: #C17F59;
+            --ochre: #D4A84B;
+            --sage: #8BA888;
+            --dark: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: rgba(26, 26, 26, 0.7);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 17px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(193, 127, 89, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: var(--forest);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(45, 71, 57, 0.3);
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--sage);
+            margin-bottom: 24px;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--sage);
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="20" fill="#C17F59"/>
+                <path d="M12 14C12 12.8954 12.8954 12 14 12H18C19.1046 12 20 12.8954 20 14V28C20 28 18 27 16 27C14 27 12 28 12 28V14Z" fill="white"/>
+                <path d="M28 14C28 12.8954 27.1046 12 26 12H22C20.8954 12 20 12.8954 20 14V28C20 28 22 27 24 27C26 27 28 28 28 28V14Z" fill="white" fill-opacity="0.8"/>
+            </svg>
+            <span class="logo-text">Turnpage</span>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <span>Opening Turnpage...</span>
+        </div>
+
+        <div id="content" class="hidden">
+            <h1>Join this Book Club</h1>
+            <p>You've been invited to join a book club on Turnpage. Open the app to view and join the discussion!</p>
+
+            <a href="#" id="openApp" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+                </svg>
+                Open in Turnpage
+            </a>
+
+            <a href="https://apps.apple.com/app/turnpage/id0000000000" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                </svg>
+                Get on App Store
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Get club ID from URL path
+        const pathParts = window.location.pathname.split('/');
+        const clubIndex = pathParts.indexOf('club');
+        const clubId = clubIndex !== -1 && pathParts[clubIndex + 1] ? pathParts[clubIndex + 1] : null;
+
+        // Universal link / deep link URL
+        const appUrl = clubId ? `turnpage://club/${clubId}` : 'turnpage://';
+        const webUrl = window.location.href;
+
+        // Update the "Open in App" button
+        document.getElementById('openApp').href = appUrl;
+
+        // Try to open the app automatically
+        function tryOpenApp() {
+            // Try to open the app
+            window.location.href = appUrl;
+
+            // After a short delay, show the manual buttons
+            setTimeout(function() {
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('content').classList.remove('hidden');
+            }, 2500);
+        }
+
+        // Detect if on iOS
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+        if (isIOS && clubId) {
+            tryOpenApp();
+        } else {
+            // Not iOS or no club ID, show content immediately
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('content').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
