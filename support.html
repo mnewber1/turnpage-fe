@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Turnpage</title>
+    <meta name="description" content="Get help and support for the Turnpage app.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FDF8F3;
+            --forest: #2D4739;
+            --terracotta: #C17F59;
+            --ochre: #D4A84B;
+            --sage: #8BA888;
+            --dark: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        /* Main content */
+        main {
+            flex: 1;
+            padding: 40px 0 60px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .support-section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .support-section h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 16px;
+        }
+
+        .support-section p {
+            color: rgba(26, 26, 26, 0.7);
+            margin-bottom: 16px;
+        }
+
+        .support-section a {
+            color: var(--terracotta);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .support-section a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--forest);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(45, 71, 57, 0.25);
+            text-decoration: none;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(45, 71, 57, 0.1);
+            padding: 16px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content a {
+            color: rgba(26, 26, 26, 0.4);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-content a:hover {
+            color: var(--forest);
+        }
+
+        .footer-content span {
+            color: rgba(26, 26, 26, 0.3);
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .support-section {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="20" fill="#C17F59"/>
+                        <path d="M12 14C12 12.8954 12.8954 12 14 12H18C19.1046 12 20 12.8954 20 14V28C20 28 18 27 16 27C14 27 12 28 12 28V14Z" fill="white"/>
+                        <path d="M28 14C28 12.8954 27.1046 12 26 12H22C20.8954 12 20 12.8954 20 14V28C20 28 22 27 24 27C26 27 28 28 28 28V14Z" fill="white" fill-opacity="0.8"/>
+                    </svg>
+                    <span class="logo-text">Turnpage</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Support</h1>
+
+            <div class="support-section">
+                <h2>Contact Us</h2>
+                <p>Have a question, feedback, or need help with something? We'd love to hear from you.</p>
+                <a href="mailto:support@turnpage.app" class="contact-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z"/>
+                    </svg>
+                    support@turnpage.app
+                </a>
+            </div>
+
+            <div class="support-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <h3>How do I join a book club?</h3>
+                    <p>Search for the book you're currently reading and tap "Find Readers" to see clubs discussing that book. You can join an existing club or start your own.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do spoiler tags work?</h3>
+                    <p>When sending a message, tap the eye icon to mark it as a spoiler. You can specify the chapter number, and the message will be hidden from readers who haven't reached that point yet.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I be in multiple book clubs?</h3>
+                    <p>Yes! Free users can join up to 5 active clubs. Premium members have unlimited club access.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I delete my account?</h3>
+                    <p>Go to your Profile, scroll to the bottom, and tap "Delete Account." This will permanently remove your account and all associated data.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How do I report inappropriate content?</h3>
+                    <p>Tap and hold on any message to see the report option. Our moderation team reviews all reports within 24 hours.</p>
+                </div>
+            </div>
+
+            <div class="support-section">
+                <h2>App Information</h2>
+                <p><strong>Version:</strong> 1.0</p>
+                <p><strong>Requires:</strong> iOS 17.0 or later</p>
+                <p>For the latest updates and announcements, follow us on social media or check the App Store.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="/">Home</a>
+                <a href="/support.html">Support</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <span>&copy; 2025 Turnpage</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
