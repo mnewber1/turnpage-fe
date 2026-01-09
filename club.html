@@ -182,10 +182,9 @@
     </div>
 
     <script>
-        // Get club ID from URL path
-        const pathParts = window.location.pathname.split('/');
-        const clubIndex = pathParts.indexOf('club');
-        const clubId = clubIndex !== -1 && pathParts[clubIndex + 1] ? pathParts[clubIndex + 1] : null;
+        // Get club ID from URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const clubId = urlParams.get('id');
 
         // Universal link / deep link URL
         const appUrl = clubId ? `turnpage://club/${clubId}` : 'turnpage://';
