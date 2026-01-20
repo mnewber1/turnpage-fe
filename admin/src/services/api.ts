@@ -56,14 +56,22 @@ class ApiService {
     return response.json();
   }
 
-  // Auth
+  // Auth - don't use request() to avoid redirect on 401
   async login(email: string, password: string): Promise<AuthResponse> {
-    const response = await this.request<AuthResponse>('/api/auth/login', {
+    const response = await fetch(`${API_URL}/api/auth/login`, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
-    this.setToken(response.token);
-    return response;
+
+    if (!response.ok) {
+      const error = await response.text();
+      throw new Error(error || 'Invalid credentials');
+    }
+
+    const data = await response.json();
+    this.setToken(data.token);
+    return data;
   }
 
   async getCurrentUser(): Promise<User> {

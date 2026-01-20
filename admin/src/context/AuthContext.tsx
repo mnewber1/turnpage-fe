@@ -43,18 +43,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
+      console.log('Attempting login for:', email);
       const response = await api.login(email, password);
+      console.log('Login response:', response);
       localStorage.setItem('admin_user_id', response.userId);
 
       const currentUser = await api.getCurrentUser();
+      console.log('Current user:', currentUser);
+      console.log('isAdmin:', currentUser.isAdmin, 'admin:', currentUser.admin);
+
       if (!checkIsAdmin(currentUser)) {
+        console.log('User is not admin, logging out');
         api.logout();
         return false;
       }
 
       setUser(currentUser);
       return true;
-    } catch {
+    } catch (err) {
+      console.error('Login error:', err);
       return false;
     }
   };
