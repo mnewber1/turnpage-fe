@@ -87,47 +87,47 @@ class ApiService {
 
   // Admin endpoints
   async getStats(): Promise<AdminStats> {
-    return this.request<AdminStats>('/api/admin-build/stats');
+    return this.request<AdminStats>('/api/admin/stats');
   }
 
   async getUsers(page = 0, size = 20, search?: string): Promise<PageResponse<User>> {
     const params = new URLSearchParams({ page: String(page), size: String(size) });
     if (search) params.append('search', search);
-    return this.request<PageResponse<User>>(`/api/admin-build/users?${params}`);
+    return this.request<PageResponse<User>>(`/api/admin/users?${params}`);
   }
 
   async banUser(userId: string): Promise<User> {
-    return this.request<User>(`/api/admin-build/users/${userId}/ban`, { method: 'POST' });
+    return this.request<User>(`/api/admin/users/${userId}/ban`, { method: 'POST' });
   }
 
   async unbanUser(userId: string): Promise<User> {
-    return this.request<User>(`/api/admin-build/users/${userId}/unban`, { method: 'POST' });
+    return this.request<User>(`/api/admin/users/${userId}/unban`, { method: 'POST' });
   }
 
   async getClubs(): Promise<BookClub[]> {
-    return this.request<BookClub[]>('/api/admin-build/clubs');
+    return this.request<BookClub[]>('/api/admin/clubs');
   }
 
   async getClubMessages(clubId: string, page = 0, size = 50): Promise<PageResponse<Message>> {
     const params = new URLSearchParams({ page: String(page), size: String(size) });
-    return this.request<PageResponse<Message>>(`/api/admin-build/clubs/${clubId}/messages?${params}`);
+    return this.request<PageResponse<Message>>(`/api/admin/clubs/${clubId}/messages?${params}`);
   }
 
   async deleteMessage(messageId: string): Promise<void> {
-    return this.request<void>(`/api/admin-build/messages/${messageId}`, { method: 'DELETE' });
+    return this.request<void>(`/api/admin/messages/${messageId}`, { method: 'DELETE' });
   }
 
   async getReportedMessages(page = 0, size = 20): Promise<PageResponse<Message>> {
     const params = new URLSearchParams({ page: String(page), size: String(size) });
-    return this.request<PageResponse<Message>>(`/api/admin-build/messages/reported?${params}`);
+    return this.request<PageResponse<Message>>(`/api/admin/messages/reported?${params}`);
   }
 
   async dismissReport(messageId: string): Promise<void> {
-    return this.request<void>(`/api/admin-build/messages/${messageId}/dismiss`, { method: 'POST' });
+    return this.request<void>(`/api/admin/messages/${messageId}/dismiss`, { method: 'POST' });
   }
 
   async sendBroadcast(title: string, body: string): Promise<{ sentCount: number }> {
-    return this.request<{ sentCount: number }>('/api/admin-build/broadcast', {
+    return this.request<{ sentCount: number }>('/api/admin/broadcast', {
       method: 'POST',
       body: JSON.stringify({ title, body }),
     });
