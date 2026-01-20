@@ -2,12 +2,12 @@ services:
   - type: web
     name: turnpage-website
     runtime: static
-    buildCommand: cd admin && npm install && npm run build && cp -r dist ../admin
+    buildCommand: cd admin && npm install && npm run build && mkdir -p ../admin-build && cp -r dist/* ../admin-build/
     staticPublishPath: .
     routes:
       - type: rewrite
         source: /admin/*
-        destination: /admin/index.html
+        destination: /admin-build/index.html
     headers:
       - path: /*
         name: Cache-Control

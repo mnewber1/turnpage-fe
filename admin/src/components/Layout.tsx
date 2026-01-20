@@ -11,15 +11,15 @@ export function Layout({ children }: LayoutProps) {
   const location = useLocation();
 
   const navItems = [
-    { path: '/admin/', label: 'Dashboard', icon: '📊' },
-    { path: '/admin/users', label: 'Users', icon: '👥' },
-    { path: '/admin/clubs', label: 'Clubs', icon: '📚' },
-    { path: '/admin/reported', label: 'Reported', icon: '⚠️' },
-    { path: '/admin/broadcast', label: 'Broadcast', icon: '📢' },
+    { path: '/admin-build/', label: 'Dashboard', icon: '📊' },
+    { path: '/admin-build/users', label: 'Users', icon: '👥' },
+    { path: '/admin-build/clubs', label: 'Clubs', icon: '📚' },
+    { path: '/admin-build/reported', label: 'Reported', icon: '⚠️' },
+    { path: '/admin-build/broadcast', label: 'Broadcast', icon: '📢' },
   ];
 
   const isActive = (path: string) => {
-    if (path === '/admin/') return location.pathname === '/admin/' || location.pathname === '/admin';
+    if (path === '/admin-build/') return location.pathname === '/admin-build/' || location.pathname === '/admin';
     return location.pathname.startsWith(path);
   };
 
