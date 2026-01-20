@@ -44,6 +44,19 @@ export function ClubsPage() {
     }
   };
 
+  const handleDeleteClub = async (club: BookClub) => {
+    if (!confirm(`Are you sure you want to delete "${club.name}"? This will deactivate the club.`)) return;
+    try {
+      await api.deleteClub(club.id);
+      setClubs(clubs.map((c) => c.id === club.id ? { ...c, isActive: false } : c));
+      if (selectedClub?.id === club.id) {
+        setSelectedClub({ ...selectedClub, isActive: false });
+      }
+    } catch (error) {
+      console.error('Failed to delete club:', error);
+    }
+  };
+
   if (isLoading) {
     return <div className="text-center py-8">Loading...</div>;
   }
@@ -57,15 +70,32 @@ export function ClubsPage() {
           {clubs.map((club) => (
             <div
               key={club.id}
-              onClick={() => loadMessages(club)}
-              className={`p-4 cursor-pointer hover:bg-gray-50 ${selectedClub?.id === club.id ? 'bg-primary-50' : ''}`}
+              className={`p-4 ${selectedClub?.id === club.id ? 'bg-primary-50' : ''}`}
             >
-              <p className="font-medium">{club.name}</p>
-              <p className="text-sm text-gray-500 truncate">{club.description || 'No description'}</p>
-              <div className="flex gap-2 mt-1">
-                {club.isPrivate && <span className="text-xs bg-gray-100 px-2 py-0.5 rounded">Private</span>}
-                {club.isCommunity && <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Community</span>}
-                {!club.isActive && <span className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded">Inactive</span>}
+              <div className="flex justify-between items-start">
+                <div
+                  onClick={() => loadMessages(club)}
+                  className="cursor-pointer hover:bg-gray-50 flex-1"
+                >
+                  <p className="font-medium">{club.name}</p>
+                  <p className="text-sm text-gray-500 truncate">{club.description || 'No description'}</p>
+                  <div className="flex gap-2 mt-1">
+                    {club.isPrivate && <span className="text-xs bg-gray-100 px-2 py-0.5 rounded">Private</span>}
+                    {club.isCommunity && <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded">Community</span>}
+                    {!club.isActive && <span className="text-xs bg-red-100 text-red-800 px-2 py-0.5 rounded">Inactive</span>}
+                  </div>
+                </div>
+                {club.isActive && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDeleteClub(club);
+                    }}
+                    className="text-red-600 hover:text-red-800 text-sm ml-2"
+                  >
+                    Delete
+                  </button>
+                )}
               </div>
             </div>
           ))}

@@ -108,6 +108,10 @@ class ApiService {
     return this.request<BookClub[]>('/api/admin/clubs');
   }
 
+  async deleteClub(clubId: string): Promise<void> {
+    return this.request<void>(`/api/admin/clubs/${clubId}`, { method: 'DELETE' });
+  }
+
   async getClubMessages(clubId: string, page = 0, size = 50): Promise<PageResponse<Message>> {
     const params = new URLSearchParams({ page: String(page), size: String(size) });
     return this.request<PageResponse<Message>>(`/api/admin/clubs/${clubId}/messages?${params}`);
