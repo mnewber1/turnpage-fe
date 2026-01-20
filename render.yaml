@@ -2,10 +2,13 @@ services:
   - type: web
     name: turnpage-website
     runtime: static
-    buildCommand: echo "No build required"
+    buildCommand: cd admin && npm install && npm run build && cp -r dist ../admin
     staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /admin/*
+        destination: /admin/index.html
     headers:
       - path: /*
         name: Cache-Control
         value: public, max-age=3600
-
