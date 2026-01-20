@@ -16,13 +16,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Helper to check admin status (Jackson serializes isAdmin as "admin")
+  const checkIsAdmin = (u: User): boolean => {
+    return u.isAdmin === true || u.admin === true;
+  };
+
   useEffect(() => {
     const checkAuth = async () => {
       const token = api.getToken();
       if (token) {
         try {
           const currentUser = await api.getCurrentUser();
-          if (currentUser.isAdmin) {
+          if (checkIsAdmin(currentUser)) {
             setUser(currentUser);
           } else {
             api.logout();
@@ -42,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       localStorage.setItem('admin_user_id', response.userId);
 
       const currentUser = await api.getCurrentUser();
-      if (!currentUser.isAdmin) {
+      if (!checkIsAdmin(currentUser)) {
         api.logout();
         return false;
       }

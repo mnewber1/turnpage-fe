@@ -6,7 +6,8 @@ export interface User {
   avatarUrl?: string;
   isActive: boolean;
   isPremium: boolean;
-  isAdmin: boolean;
+  isAdmin?: boolean;
+  admin?: boolean;  // Jackson serializes isAdmin as "admin"
   createdAt: string;
   updatedAt: string;
 }
