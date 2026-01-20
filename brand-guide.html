@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnpage Brand Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FFF9F0;
+            --terracotta: #D4745F;
+            --forest: #2B4A3F;
+            --ochre: #E8A449;
+            --sage: #9FB89F;
+            --burgundy: #8B3E3E;
+            --warm: #F5EBE0;
+            --dark: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--forest) 0%, var(--burgundy) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        header p {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+        }
+
+        nav a {
+            color: var(--forest);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--terracotta);
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--forest);
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--forest);
+            margin: 32px 0 16px;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--terracotta);
+            margin: 24px 0 12px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: rgba(26,26,26,0.8);
+        }
+
+        ul, ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: rgba(26,26,26,0.8);
+        }
+
+        /* Tagline Box */
+        .tagline-box {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--burgundy) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .tagline-box h3 {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            margin: 0;
+        }
+
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .color-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .color-swatch {
+            height: 80px;
+        }
+
+        .color-info {
+            padding: 16px;
+        }
+
+        .color-name {
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        .color-hex {
+            font-family: monospace;
+            font-size: 14px;
+            color: rgba(26,26,26,0.5);
+        }
+
+        .color-usage {
+            font-size: 13px;
+            color: rgba(26,26,26,0.6);
+            margin-top: 8px;
+        }
+
+        /* Typography */
+        .font-example {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin: 16px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+        }
+
+        .feature-card p {
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        th {
+            background: var(--forest);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: var(--warm);
+            padding: 24px 32px;
+            border-radius: 16px;
+            border-left: 4px solid var(--terracotta);
+            margin: 24px 0;
+            font-style: italic;
+        }
+
+        /* Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .keyword {
+            background: var(--sage);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Hashtags */
+        .hashtag {
+            background: var(--terracotta);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--forest);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--ochre);
+            text-decoration: none;
+        }
+
+        /* Print Styles */
+        @media print {
+            nav {
+                display: none;
+            }
+            section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 26px;
+            }
+            .tagline-box h3 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Turnpage Brand Guide</h1>
+            <p>Visual identity and messaging guidelines</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#audience">Audience</a></li>
+                <li><a href="#personality">Personality</a></li>
+                <li><a href="#visual">Visual Identity</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#messaging">Messaging</a></li>
+                <li><a href="#positioning">Positioning</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Overview -->
+        <section id="overview">
+            <div class="container">
+                <h2>Overview</h2>
+                <p><strong>Turnpage</strong> is a social reading app that connects book lovers through shared stories. It's a book club platform where readers discover clubs, discuss books, and build meaningful connections around their favorite reads.</p>
+
+                <div class="tagline-box">
+                    <h3>"Where Stories Bring Strangers Together"</h3>
+                </div>
+
+                <h3>Mission</h3>
+                <p>Connect readers who share a passion for books. Enable meaningful discussions, help users discover their next great read, and foster community through the shared love of storytelling.</p>
+
+                <h3>Value Proposition</h3>
+                <ul>
+                    <li>Join and create book clubs around specific books</li>
+                    <li>Real-time chat discussions with spoiler protection</li>
+                    <li>Discover trending clubs and connect with like-minded readers</li>
+                    <li>Track reading progress and share with your club</li>
+                    <li>@mention other readers and react to messages</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Target Audience -->
+        <section id="audience">
+            <div class="container">
+                <h2>Target Audience</h2>
+
+                <h3>Primary Audience</h3>
+                <ul>
+                    <li><strong>Age:</strong> 18-45</li>
+                    <li><strong>Interests:</strong> Avid readers, book club enthusiasts, people seeking community</li>
+                    <li><strong>Behavior:</strong> Read 10+ books per year, active on social platforms, enjoy discussing books</li>
+                </ul>
+
+                <h4>Pain Points</h4>
+                <ul>
+                    <li>Difficulty finding local book clubs</li>
+                    <li>Wanting to discuss books without spoilers</li>
+                    <li>Seeking reading recommendations from real people</li>
+                </ul>
+
+                <h3>Secondary Audience</h3>
+                <ul>
+                    <li>Casual readers looking to read more</li>
+                    <li>People new to a city seeking social connections</li>
+                    <li>Book influencers and content creators</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Brand Personality -->
+        <section id="personality">
+            <div class="container">
+                <h2>Brand Personality</h2>
+
+                <h3>Voice & Tone</h3>
+                <ul>
+                    <li><strong>Warm & Welcoming</strong> - Like a cozy bookshop or a friend's living room</li>
+                    <li><strong>Thoughtful</strong> - Respectful of readers' time and preferences</li>
+                    <li><strong>Community-focused</strong> - Emphasizes connection over competition</li>
+                    <li><strong>Literate but accessible</strong> - Smart without being pretentious</li>
+                </ul>
+
+                <h3>Brand Keywords</h3>
+                <div class="keywords">
+                    <span class="keyword">Community</span>
+                    <span class="keyword">Connection</span>
+                    <span class="keyword">Discovery</span>
+                    <span class="keyword">Cozy</span>
+                    <span class="keyword">Warm</span>
+                    <span class="keyword">Inviting</span>
+                    <span class="keyword">Stories</span>
+                    <span class="keyword">Conversations</span>
+                    <span class="keyword">Belonging</span>
+                    <span class="keyword">Thoughtful</span>
+                    <span class="keyword">Curated</span>
+                    <span class="keyword">Personal</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Visual Identity -->
+        <section id="visual">
+            <div class="container">
+                <h2>Visual Identity</h2>
+
+                <h3>Logo</h3>
+                <p>The primary logo features a <strong>butterfly icon</strong> in Terracotta. The butterfly represents transformation through reading and the delicate connections formed between readers. An alternate open book icon is used on the website.</p>
+
+                <h3>Color Palette</h3>
+                <div class="color-grid">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #FFF9F0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Cream</div>
+                            <div class="color-hex">#FFF9F0</div>
+                            <div class="color-usage">Primary background, warm paper-like feel</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #D4745F;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Terracotta</div>
+                            <div class="color-hex">#D4745F</div>
+                            <div class="color-usage">Primary accent, CTAs, logo, highlights</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #2B4A3F;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Forest</div>
+                            <div class="color-hex">#2B4A3F</div>
+                            <div class="color-usage">Primary text, headers, key UI elements</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #E8A449;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Ochre</div>
+                            <div class="color-hex">#E8A449</div>
+                            <div class="color-usage">Secondary accent, warnings, mild spoilers</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #9FB89F;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Sage</div>
+                            <div class="color-hex">#9FB89F</div>
+                            <div class="color-usage">Secondary buttons, success states, tags</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #8B3E3E;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Burgundy</div>
+                            <div class="color-hex">#8B3E3E</div>
+                            <div class="color-usage">Emphasis, major spoilers, important alerts</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #F5EBE0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Warm</div>
+                            <div class="color-hex">#F5EBE0</div>
+                            <div class="color-usage">Card backgrounds, input fields</div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #1A1A1A;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Dark</div>
+                            <div class="color-hex">#1A1A1A</div>
+                            <div class="color-usage">Body text</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Typography</h3>
+                <div class="font-example">
+                    <div class="font-playfair">Playfair Display</div>
+                    <p style="margin: 8px 0 0; color: rgba(26,26,26,0.6);">Headlines, logo, display text</p>
+                </div>
+                <div class="font-example">
+                    <div class="font-inter">Inter / System Sans-Serif</div>
+                    <p style="margin: 8px 0 0; color: rgba(26,26,26,0.6);">Body text, UI elements, buttons</p>
+                </div>
+
+                <h3>Design Principles</h3>
+                <ul>
+                    <li><strong>Warm & Cozy:</strong> Cream backgrounds evoke the feeling of book pages</li>
+                    <li><strong>Organic:</strong> Rounded corners (12-20px), soft shadows</li>
+                    <li><strong>Readable:</strong> High contrast text, generous spacing</li>
+                    <li><strong>Elegant Simplicity:</strong> Clean layouts that let content breathe</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features">
+            <div class="container">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Book Clubs</h4>
+                        <p>Create or join clubs centered around specific books. Public, private, and community club types with real-time group chat.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Spoiler Protection</h4>
+                        <p>Mark messages with spoiler levels (Mild, Major, Ending, Guess). Chapter-based tags with auto-reveal based on reading progress.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Social Features</h4>
+                        <p>@mention other readers, react to messages with themed reactions, view member profiles and reading activity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Discovery</h4>
+                        <p>Trending clubs based on activity, genre-based browsing, and community clubs for genre discussions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Reading Progress</h4>
+                        <p>Track current chapter, share progress with club members, and celebrate finishing books.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Messaging -->
+        <section id="messaging">
+            <div class="container">
+                <h2>Messaging Framework</h2>
+
+                <h3>Headlines</h3>
+                <div class="quote-box">
+                    <p>"Where Stories Bring Strangers Together"</p>
+                    <p>"Find Your Reading Community"</p>
+                    <p>"Your Next Book Club is Waiting"</p>
+                    <p>"Read Together, Discuss Together"</p>
+                </div>
+
+                <h3>Benefit Statements</h3>
+                <ul>
+                    <li>"Connect with readers who share your passion"</li>
+                    <li>"Discuss books without spoiler anxiety"</li>
+                    <li>"Discover your next great read through real conversations"</li>
+                    <li>"Join intimate book discussions, not comment sections"</li>
+                </ul>
+
+                <h3>Feature Descriptions</h3>
+                <ul>
+                    <li><strong>Book Clubs:</strong> "Intimate groups centered around the books you love"</li>
+                    <li><strong>Spoiler Tags:</strong> "Discuss freely with smart spoiler protection"</li>
+                    <li><strong>Mentions:</strong> "Tag fellow readers to spark conversation"</li>
+                    <li><strong>Discovery:</strong> "Find trending clubs and new reading friends"</li>
+                </ul>
+
+                <h3>App Store Presence</h3>
+                <ul>
+                    <li><strong>App Name:</strong> Turnpage - Book Clubs & Chat</li>
+                    <li><strong>Subtitle:</strong> Find Your Reading Community</li>
+                    <li><strong>Keywords:</strong> book clubs, reading, book chat, book discussion, readers, book community, book groups, reading groups, book talk, literary</li>
+                </ul>
+
+                <h3>Social Media Hashtags</h3>
+                <div class="keywords">
+                    <span class="hashtag">#Turnpage</span>
+                    <span class="hashtag">#TurnpageApp</span>
+                    <span class="hashtag">#ReadTogether</span>
+                    <span class="hashtag">#BookClubChat</span>
+                    <span class="hashtag">#StoriesBringUsTogether</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Positioning -->
+        <section id="positioning">
+            <div class="container">
+                <h2>Competitive Positioning</h2>
+
+                <h3>What Makes Turnpage Different</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Turnpage</th>
+                            <th>Goodreads</th>
+                            <th>Generic Book Apps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Real-time chat discussions</td>
+                            <td>Reviews & ratings</td>
+                            <td>Static content</td>
+                        </tr>
+                        <tr>
+                            <td>Intimate club communities</td>
+                            <td>Mass social network</td>
+                            <td>Solo experience</td>
+                        </tr>
+                        <tr>
+                            <td>Smart spoiler protection</td>
+                            <td>No spoiler controls</td>
+                            <td>No discussion features</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile-first experience</td>
+                            <td>Desktop-focused</td>
+                            <td>Varies</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Key Differentiators</h3>
+                <ol>
+                    <li><strong>Chat-first:</strong> Real conversations, not reviews</li>
+                    <li><strong>Club-focused:</strong> Small communities, not mass followers</li>
+                    <li><strong>Spoiler-smart:</strong> Read at your own pace safely</li>
+                    <li><strong>Mobile-native:</strong> Designed for iOS from the ground up</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><strong>Turnpage</strong> &copy; 2025</p>
+            <p style="margin-top: 8px;"><a href="https://turnpage.app">turnpage.app</a></p>
+        </div>
+    </footer>
+</body>
+</html>
